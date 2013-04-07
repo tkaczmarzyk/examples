@@ -26,7 +26,7 @@ public class TestClient {
 
 		SSLSocketFactory sf = new SSLSocketFactory(SimpleServer.loadKeyStore());
 		
-		Scheme https = new Scheme("https", 8443, sf);
+		Scheme https = new Scheme("https", 443, sf);
 
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		httpclient.getConnectionManager().getSchemeRegistry().register(https);
