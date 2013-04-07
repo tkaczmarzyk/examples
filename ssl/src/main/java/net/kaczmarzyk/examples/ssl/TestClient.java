@@ -25,6 +25,7 @@ public class TestClient {
 		Scheme http = new Scheme("http", 80, PlainSocketFactory.getSocketFactory());
 
 		SSLSocketFactory sf = new SSLSocketFactory(SimpleServer.loadKeyStore());
+//		SSLSocketFactory sf = new SSLSocketFactory(SSLContext.getDefault()); // this will work only with certs signed by root CAs
 		
 		Scheme https = new Scheme("https", 443, sf);
 
