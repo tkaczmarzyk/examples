@@ -27,7 +27,7 @@ public class SimpleServer {
 		Server server = new Server();
 
 		SslContextFactory sslCtxFactory = new SslContextFactory();
-		KeyStore keystore = loadKeyStore(KEYSTORE_FILENAME, KEYSTORE_PASS);
+		KeyStore keystore = loadKeyStore();
 		sslCtxFactory.setKeyStore(keystore);
 		sslCtxFactory.setKeyStorePassword(KEYSTORE_PASS);
 		sslCtxFactory.setKeyManagerPassword(KEYSTORE_PASS);
@@ -49,13 +49,13 @@ public class SimpleServer {
 		server.join();
 	}
 
-	private static KeyStore loadKeyStore(String filename, String password) throws Exception {
+	public static KeyStore loadKeyStore() throws Exception {
 		KeyStore keyStore = KeyStore.getInstance("JKS");
-		InputStream ksResource = SimpleServer.class.getResourceAsStream(filename);
+		InputStream ksResource = SimpleServer.class.getResourceAsStream(KEYSTORE_FILENAME);
 		if (ksResource == null) {
 			throw new IllegalStateException("could not load the keystore!");
 		}
-		keyStore.load(ksResource, password.toCharArray());
+		keyStore.load(ksResource, KEYSTORE_PASS.toCharArray());
 		return keyStore;
 	}
 
