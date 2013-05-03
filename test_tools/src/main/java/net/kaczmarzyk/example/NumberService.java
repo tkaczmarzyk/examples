@@ -7,7 +7,11 @@ public class NumberService {
 
 	private List<Number> nums = new ArrayList<>();
 	
-	public void store(Number n) {
+	public synchronized void store(Number n) {
 		nums.add(n);
+	}
+
+	public List<Number> getNumbers() {
+		return new ArrayList<>(nums);
 	}
 }
