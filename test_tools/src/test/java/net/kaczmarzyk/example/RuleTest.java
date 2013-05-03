@@ -20,6 +20,7 @@ public class RuleTest {
 	@Test
 	public void test() throws IOException {
 		File tempFile = temp.newFile();
+		assertTrue(tempFile.exists());
 	}
 	
 	@Rule
