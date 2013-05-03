@@ -1,6 +1,7 @@
 package net.kaczmarzyk.example;
 
-public class NaturalNumber {
+@SuppressWarnings("serial")
+public class NaturalNumber extends Number {
 
 	private int value;
 	
@@ -20,5 +21,25 @@ public class NaturalNumber {
 			throw new IllegalArgumentException("result is not natural!");
 		}
 		return new NaturalNumber(value / divisor);
+	}
+
+	@Override
+	public double doubleValue() {
+		return value;
+	}
+
+	@Override
+	public float floatValue() {
+		return value;
+	}
+
+	@Override
+	public int intValue() {
+		return value;
+	}
+
+	@Override
+	public long longValue() {
+		return value;
 	}
 }
