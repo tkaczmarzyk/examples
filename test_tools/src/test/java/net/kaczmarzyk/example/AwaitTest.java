@@ -16,24 +16,6 @@ import com.google.code.tempusfugit.temporal.Condition;
 
 public class AwaitTest {
 
-	private static class Job extends Thread {
-		
-		private boolean done;
-		
-		@Override
-		public void run() {
-			try {
-				Thread.sleep(750);
-				done = true;
-			} catch (Exception e) {
-			}
-		}
-		
-		public boolean isDone() {
-			return done;
-		}
-	}
-	
 	@Test
 	public void tempusFugitWaitFor() throws Exception {
 		Job job = new Job();
