@@ -42,4 +42,9 @@ public class NaturalNumber extends Number {
 	public long longValue() {
 		return value;
 	}
+
+	@Override
+	public String toString() {
+		return "NaturalNumber [value=" + value + "]";
+	}
 }
