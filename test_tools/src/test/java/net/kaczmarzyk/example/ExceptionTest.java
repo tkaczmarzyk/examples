@@ -3,11 +3,12 @@ package net.kaczmarzyk.example;
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static com.googlecode.catchexception.CatchException.verifyException;
-import static com.googlecode.catchexception.apis.CatchExceptionBdd.then;
 import static com.googlecode.catchexception.apis.CatchExceptionBdd.when;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import org.fest.assertions.api.Assertions;
+import org.fest.assertions.api.ThrowableAssert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -75,5 +76,9 @@ public class ExceptionTest {
 			.isInstanceOf(IllegalArgumentException.class)
 			.hasMessage("result is not natural!")
 			.hasNoCause();
+	}
+	
+	private static ThrowableAssert then(Exception e) {
+		return Assertions.assertThat(e);
 	}
 }

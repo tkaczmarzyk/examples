@@ -37,13 +37,13 @@ public class BeanDiffExample {
 		a2.setDelegate(a2Delegate);
 	}
 	
-//	@Ignore
+	@Ignore
 	@Test
 	public void findDifference() {
 		assertEquals(a1, a2);
 	}
 	
-//	@Ignore
+	@Ignore
 	@Test
 	public void findDifference_withBeandiff() {
 		BeanDiffAssert.assertNoDifference(a1, a2);

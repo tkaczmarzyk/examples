@@ -1,10 +1,15 @@
 package net.kaczmarzyk.example;
 
+import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.argThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+
+import java.util.Arrays;
+import java.util.List;
 
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
@@ -20,6 +25,14 @@ public class HamcrestTest {
 		NaturalNumber result = n.divide(2);
 		
 		assertThat(result, is(natural(1)));
+	}
+	
+	@Test
+	public void collectionMatcherWithEmbeddedCustomOne() {
+		List<NaturalNumber> nums = Arrays.asList(new NaturalNumber(1), new NaturalNumber(2), new NaturalNumber(3));
+		
+		assertThat(nums, hasSize(3));
+		assertThat(nums, hasItem(natural(3)));		
 	}
 	
 	@Test
